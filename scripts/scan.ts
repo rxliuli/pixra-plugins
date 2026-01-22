@@ -124,27 +124,49 @@ async function processInstalledPackage(
       return null
     }
 
-    // Find main.js in dist/
-    const mainJsPath = path.join(pkgPath, 'dist', manifest.main)
-    const mainJs = await fs.readFile(mainJsPath)
-
-    // Create plugin.zip
-    const zip = new JSZip()
-    zip.file('plugin.json', manifestContent)
-    zip.file(manifest.main, mainJs)
-
-    const zipBuffer = await zip.generateAsync({
-      type: 'nodebuffer',
-      compression: 'DEFLATE',
-    })
-
     // Create plugin directory
     const pluginDir = path.join(PLUGINS_DIR, manifest.id)
     await fs.mkdir(pluginDir, { recursive: true })
 
-    // Write files
-    await fs.writeFile(path.join(pluginDir, 'plugin.json'), manifestContent)
-    await fs.writeFile(path.join(pluginDir, 'plugin.zip'), zipBuffer)
+    // Check if we already have this version cached
+    const existingManifestPath = path.join(pluginDir, 'plugin.json')
+    const existingZipPath = path.join(pluginDir, 'plugin.zip')
+    let zipBuffer: Buffer | null = null
+
+    try {
+      const existingManifest = JSON.parse(
+        await fs.readFile(existingManifestPath, 'utf8'),
+      )
+      const zipStat = await fs.stat(existingZipPath)
+      if (existingManifest.version === manifest.version && zipStat.size > 0) {
+        // Version unchanged, use existing zip
+        zipBuffer = await fs.readFile(existingZipPath)
+        console.log(`  ✓ ${manifest.id}@${manifest.version} (cached)`)
+      }
+    } catch {
+      // No existing manifest or zip, need to build
+    }
+
+    if (!zipBuffer) {
+      // Find main.js in dist/
+      const mainJsPath = path.join(pkgPath, 'dist', manifest.main)
+      const mainJs = await fs.readFile(mainJsPath)
+
+      // Create plugin.zip
+      const zip = new JSZip()
+      zip.file('plugin.json', manifestContent)
+      zip.file(manifest.main, mainJs)
+
+      zipBuffer = await zip.generateAsync({
+        type: 'nodebuffer',
+        compression: 'DEFLATE',
+      })
+
+      // Write files
+      await fs.writeFile(existingManifestPath, manifestContent)
+      await fs.writeFile(existingZipPath, zipBuffer)
+      console.log(`  ✓ ${manifest.id}@${manifest.version}`)
+    }
 
     // Try to get README
     for (const readmeName of ['README.md', 'readme.md', 'Readme.md']) {
@@ -245,7 +267,7 @@ async function main() {
     console.log('No new packages to add.\n')
     // Still run update to ensure we have latest versions
     console.log('Running pnpm update to check for updates...')
-    execSync('pnpm update --no-frozen-lockfile', { stdio: 'inherit' })
+    execSync('pnpm update', { stdio: 'inherit' })
     console.log()
   }
 
