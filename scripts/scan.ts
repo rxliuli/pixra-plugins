@@ -234,17 +234,18 @@ async function main() {
     }
   }
 
-  // Step 3: Write updated package.json and run npm install
+  // Step 3: Write updated package.json and run pnpm install
+  // Use --no-frozen-lockfile for CI environments where lockfile may be outdated
   if (depsChanged) {
     await writePackageJson(pkg)
     console.log('\nRunning pnpm install to fetch packages...')
-    execSync('pnpm install', { stdio: 'inherit' })
+    execSync('pnpm install --no-frozen-lockfile', { stdio: 'inherit' })
     console.log()
   } else {
     console.log('No new packages to add.\n')
-    // Still run install to ensure we have latest versions
+    // Still run update to ensure we have latest versions
     console.log('Running pnpm update to check for updates...')
-    execSync('pnpm update', { stdio: 'inherit' })
+    execSync('pnpm update --no-frozen-lockfile', { stdio: 'inherit' })
     console.log()
   }
 
