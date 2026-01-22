@@ -1,0 +1,16 @@
+{
+  "name": "pixra-plugins",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "scan": "tsx scripts/scan.ts"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.4",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "jszip": "^3.10.1"
+  }
+}
