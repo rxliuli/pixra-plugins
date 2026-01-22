@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@pixra/chrome-icons':
         specifier: latest
-        version: 0.0.2
+        version: 0.0.4
       '@pixra/remove-bg':
         specifier: latest
         version: 0.0.2(@huggingface/transformers@3.8.1)
@@ -340,8 +340,8 @@ packages:
     resolution: {integrity: sha512-wgm9Ehl2jpeqP3zw/7mo3kRHFp5MEDhqAdwy1fTGkHAwnkGOVsgpvQhL8B5n1qlb01jV3n/bI0ZfZp5lWA1k4w==}
     engines: {node: '>=18.0.0'}
 
-  '@pixra/chrome-icons@0.0.2':
-    resolution: {integrity: sha512-L3SsBRZ0KOXbMiA2lfb10O3lbEoRkUbFSv36tNYb78juU2Z8STNSKeq5baeNG8HnMnxWCBujEwBWBV5jx/7S0Q==}
+  '@pixra/chrome-icons@0.0.4':
+    resolution: {integrity: sha512-OSWypd523/+bCJExI58yKeHBxIoE/9ZOzqwLu1XJeZZVL6Xd1dMpAK0qy3KmpghQKxerbZl8LSkOsOdvpkPIfg==}
 
   '@pixra/remove-bg@0.0.2':
     resolution: {integrity: sha512-5eBximu0Kedu/tEo2FYhey0sVctF3pqR8t3Ehds51Z4r+htptmUvmnoSGFkDTo80F1MNwIxVICore5LbB6Rj7g==}
@@ -788,7 +788,7 @@ snapshots:
     dependencies:
       minipass: 7.1.2
 
-  '@pixra/chrome-icons@0.0.2':
+  '@pixra/chrome-icons@0.0.4':
     dependencies:
       jszip: 3.10.1
 
