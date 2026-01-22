@@ -13,10 +13,10 @@ importers:
         version: 0.0.4
       '@pixra/remove-bg':
         specifier: latest
-        version: 0.0.2(@huggingface/transformers@3.8.1)
+        version: 0.0.3(@huggingface/transformers@3.8.1)
       '@pixra/smart-crop':
         specifier: latest
-        version: 0.0.1
+        version: 0.0.2
     devDependencies:
       '@types/node':
         specifier: ^25.0.10
@@ -343,11 +343,11 @@ packages:
   '@pixra/chrome-icons@0.0.4':
     resolution: {integrity: sha512-OSWypd523/+bCJExI58yKeHBxIoE/9ZOzqwLu1XJeZZVL6Xd1dMpAK0qy3KmpghQKxerbZl8LSkOsOdvpkPIfg==}
 
-  '@pixra/remove-bg@0.0.2':
-    resolution: {integrity: sha512-5eBximu0Kedu/tEo2FYhey0sVctF3pqR8t3Ehds51Z4r+htptmUvmnoSGFkDTo80F1MNwIxVICore5LbB6Rj7g==}
+  '@pixra/remove-bg@0.0.3':
+    resolution: {integrity: sha512-EkzUchKOXOoMHtAPxKyh0R6xO1psDbBaFw8epDmvUK/akKaYOSHRRhKHPoXkN+gTsr8p6AhbxcTSPUIjxPvS6w==}
 
-  '@pixra/smart-crop@0.0.1':
-    resolution: {integrity: sha512-U6ggdCF9X7v+fl/vdV6HX5I12XBsfhpbM8cswkkgPpzvIAXIGsbTvtpplz2xL8Udhph+D/6y68Rh/NWYpLbY0g==}
+  '@pixra/smart-crop@0.0.2':
+    resolution: {integrity: sha512-vgwfi+lbCQysTDTVfteFFfeoYR5iEgvQKXNVDSi0aS35rl7MZDCy1pcplmUhlXobyAcq/qYZDWhth+LebpdABQ==}
 
   '@protobufjs/aspromise@1.1.2':
     resolution: {integrity: sha512-j+gKExEuLmKwvz3OgROXtrJ2UG2x8Ch2YZUxahh+s1F2HZ+wAceUNLkvy6zKCPVRkU++ZWQrdxsUeQXmcg4uoQ==}
@@ -792,13 +792,13 @@ snapshots:
     dependencies:
       jszip: 3.10.1
 
-  '@pixra/remove-bg@0.0.2(@huggingface/transformers@3.8.1)':
+  '@pixra/remove-bg@0.0.3(@huggingface/transformers@3.8.1)':
     dependencies:
       rembg-webgpu: 0.2.1(@huggingface/transformers@3.8.1)
     transitivePeerDependencies:
       - '@huggingface/transformers'
 
-  '@pixra/smart-crop@0.0.1': {}
+  '@pixra/smart-crop@0.0.2': {}
 
   '@protobufjs/aspromise@1.1.2': {}
 
