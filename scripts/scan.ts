@@ -1,11 +1,12 @@
 import fs from 'fs/promises'
 import path from 'path'
-import { gunzipSync } from 'zlib'
+import { execSync } from 'child_process'
 import JSZip from 'jszip'
 
 const SEARCH_KEYWORD = 'pixra-plugin'
 const PLUGINS_DIR = 'plugins'
 const PLUGINS_JSON = 'plugins.json'
+const PACKAGE_JSON = 'package.json'
 
 interface NpmSearchResult {
   objects: Array<{
@@ -23,14 +24,6 @@ interface NpmSearchResult {
     }
   }>
   total: number
-}
-
-interface NpmPackageManifest {
-  dist: {
-    tarball: string
-    fileCount?: number
-    unpackedSize?: number
-  }
 }
 
 interface PluginManifest {
@@ -73,6 +66,13 @@ interface PluginsJson {
   plugins: PluginInfo[]
 }
 
+interface PackageJson {
+  name: string
+  version: string
+  dependencies: Record<string, string>
+  [key: string]: unknown
+}
+
 async function searchNpmPackages(): Promise<NpmSearchResult> {
   const url = `https://registry.npmjs.org/-/v1/search?text=keywords:${SEARCH_KEYWORD}&size=250`
   const response = await fetch(url)
@@ -82,73 +82,13 @@ async function searchNpmPackages(): Promise<NpmSearchResult> {
   return response.json()
 }
 
-async function getPackageManifest(
-  name: string,
-  version: string,
-): Promise<NpmPackageManifest> {
-  const url = `https://registry.npmjs.org/${name}/${version}`
-  const response = await fetch(url)
-  if (!response.ok) {
-    throw new Error(`Failed to get package manifest: ${response.status}`)
-  }
-  return response.json()
+async function readPackageJson(): Promise<PackageJson> {
+  const content = await fs.readFile(PACKAGE_JSON, 'utf8')
+  return JSON.parse(content)
 }
 
-async function downloadAndExtractTarball(
-  tarballUrl: string,
-): Promise<Map<string, Buffer>> {
-  const response = await fetch(tarballUrl)
-  if (!response.ok) {
-    throw new Error(`Failed to download tarball: ${response.status}`)
-  }
-
-  const arrayBuffer = await response.arrayBuffer()
-  const buffer = Buffer.from(arrayBuffer)
-
-  // npm tarballs are gzipped
-  const decompressed = gunzipSync(buffer)
-
-  // Parse tar archive
-  const files = new Map<string, Buffer>()
-  let offset = 0
-
-  while (offset < decompressed.length) {
-    // Read header (512 bytes)
-    const header = decompressed.slice(offset, offset + 512)
-
-    // Check for end of archive (two consecutive zero blocks)
-    if (header.every((b) => b === 0)) {
-      break
-    }
-
-    // Parse filename (first 100 bytes, null-terminated)
-    let filename = header.slice(0, 100).toString('utf8').replace(/\0/g, '')
-
-    // Remove 'package/' prefix that npm adds
-    if (filename.startsWith('package/')) {
-      filename = filename.slice(8)
-    }
-
-    // Parse file size (bytes 124-135, octal)
-    const sizeStr = header.slice(124, 136).toString('utf8').trim()
-    const size = parseInt(sizeStr, 8) || 0
-
-    // Parse type flag (byte 156)
-    const typeFlag = header[156]
-
-    offset += 512 // Move past header
-
-    // Only process regular files (type '0' or '\0')
-    if ((typeFlag === 48 || typeFlag === 0) && size > 0) {
-      const content = decompressed.slice(offset, offset + size)
-      files.set(filename, content)
-    }
-
-    // Move to next entry (size rounded up to 512 bytes)
-    offset += Math.ceil(size / 512) * 512
-  }
-
-  return files
+async function writePackageJson(pkg: PackageJson): Promise<void> {
+  await fs.writeFile(PACKAGE_JSON, JSON.stringify(pkg, null, 2) + '\n')
 }
 
 function validateManifest(manifest: unknown): manifest is PluginManifest {
@@ -162,39 +102,33 @@ function validateManifest(manifest: unknown): manifest is PluginManifest {
   )
 }
 
-async function processPackage(
-  pkg: NpmSearchResult['objects'][0]['package'],
+async function processInstalledPackage(
+  pkgName: string,
+  searchInfo: NpmSearchResult['objects'][0]['package'] | null,
 ): Promise<PluginInfo | null> {
-  console.log(`Processing ${pkg.name}@${pkg.version}...`)
+  const pkgPath = path.join('node_modules', pkgName)
 
   try {
-    // Get package manifest from npm registry
-    const npmManifest = await getPackageManifest(pkg.name, pkg.version)
-
-    // Download and extract tarball
-    const files = await downloadAndExtractTarball(npmManifest.dist.tarball)
+    // Read package.json from node_modules
+    const npmPkgJson = JSON.parse(
+      await fs.readFile(path.join(pkgPath, 'package.json'), 'utf8'),
+    )
 
     // Find plugin.json in dist/
-    const manifestContent = files.get('dist/plugin.json')
-    if (!manifestContent) {
-      console.warn(`  No dist/plugin.json found in ${pkg.name}`)
-      return null
-    }
+    const manifestPath = path.join(pkgPath, 'dist', 'plugin.json')
+    const manifestContent = await fs.readFile(manifestPath, 'utf8')
+    const manifest: unknown = JSON.parse(manifestContent)
 
-    const manifest: unknown = JSON.parse(manifestContent.toString('utf8'))
     if (!validateManifest(manifest)) {
-      console.warn(`  Invalid manifest in ${pkg.name}`)
+      console.warn(`  Invalid manifest in ${pkgName}`)
       return null
     }
 
     // Find main.js in dist/
-    const mainJs = files.get(`dist/${manifest.main}`)
-    if (!mainJs) {
-      console.warn(`  No dist/${manifest.main} found in ${pkg.name}`)
-      return null
-    }
+    const mainJsPath = path.join(pkgPath, 'dist', manifest.main)
+    const mainJs = await fs.readFile(mainJsPath)
 
-    // Create plugin.zip containing plugin.json and plugin.js
+    // Create plugin.zip
     const zip = new JSZip()
     zip.file('plugin.json', manifestContent)
     zip.file(manifest.main, mainJs)
@@ -213,63 +147,61 @@ async function processPackage(
     await fs.writeFile(path.join(pluginDir, 'plugin.zip'), zipBuffer)
 
     // Try to get README
-    const readme =
-      files.get('README.md') || files.get('readme.md') || files.get('Readme.md')
-    if (readme) {
-      await fs.writeFile(path.join(pluginDir, 'README.md'), readme)
+    for (const readmeName of ['README.md', 'readme.md', 'Readme.md']) {
+      try {
+        const readme = await fs.readFile(path.join(pkgPath, readmeName))
+        await fs.writeFile(path.join(pluginDir, 'README.md'), readme)
+        break
+      } catch {
+        // Continue to next
+      }
     }
 
     // Extract author info
     let author = 'Unknown'
-    if (typeof pkg.author === 'string') {
-      author = pkg.author
-    } else if (pkg.author?.name) {
-      author = pkg.author.name
+    if (typeof npmPkgJson.author === 'string') {
+      author = npmPkgJson.author
+    } else if (npmPkgJson.author?.name) {
+      author = npmPkgJson.author.name
     }
 
     // Extract repository URL
     let repository: string | undefined
-    if (typeof pkg.repository === 'string') {
-      repository = pkg.repository
-    } else if (pkg.repository?.url) {
-      repository = pkg.repository.url
+    if (typeof npmPkgJson.repository === 'string') {
+      repository = npmPkgJson.repository
+    } else if (npmPkgJson.repository?.url) {
+      repository = npmPkgJson.repository.url
         .replace(/^git\+/, '')
         .replace(/\.git$/, '')
     }
 
-    // Determine if official (under @pixra scope or @pixra-plugins scope)
+    // Determine if official
     const isOfficial =
-      pkg.name.startsWith('@pixra/') || pkg.name.startsWith('@pixra-plugins/')
+      pkgName.startsWith('@pixra/') || pkgName.startsWith('@pixra-plugins/')
+
+    // Get publishedAt from search info or use current time
+    const publishedAt = searchInfo?.date || new Date().toISOString()
 
     const pluginInfo: PluginInfo = {
       id: manifest.id,
       name: manifest.name,
-      description: manifest.description || pkg.description || '',
+      description: manifest.description || npmPkgJson.description || '',
       version: manifest.version,
       minAppVersion: manifest.minAppVersion,
       author,
       repository,
-      homepage: pkg.homepage,
-      license: pkg.license,
-      publisher: pkg.publisher?.username || author,
+      homepage: npmPkgJson.homepage,
+      license: npmPkgJson.license,
+      publisher: searchInfo?.publisher?.username || author,
       official: isOfficial,
-      publishedAt: pkg.date,
+      publishedAt,
       size: zipBuffer.length,
     }
 
     console.log(`  ✓ ${manifest.id}@${manifest.version}`)
     return pluginInfo
   } catch (error) {
-    console.error(`  ✗ Failed to process ${pkg.name}:`, error)
-    return null
-  }
-}
-
-async function loadExistingPlugins(): Promise<PluginsJson | null> {
-  try {
-    const content = await fs.readFile(PLUGINS_JSON, 'utf8')
-    return JSON.parse(content)
-  } catch {
+    console.error(`  ✗ Failed to process ${pkgName}:`, error)
     return null
   }
 }
@@ -277,38 +209,57 @@ async function loadExistingPlugins(): Promise<PluginsJson | null> {
 async function main() {
   console.log('Scanning npm for pixra plugins...\n')
 
-  // Search npm
+  // Step 1: Search npm to discover new packages
   const searchResult = await searchNpmPackages()
   console.log(
     `Found ${searchResult.total} packages with keyword "${SEARCH_KEYWORD}"\n`,
   )
 
-  if (searchResult.objects.length === 0) {
-    console.log('No plugins found.')
-    return
-  }
-
-  // Load existing plugins.json for comparison
-  const existing = await loadExistingPlugins()
-  const existingMap = new Map(
-    existing?.plugins.map((p) => [`${p.id}@${p.version}`, p]) || [],
+  // Build a map of search results for metadata
+  const searchMap = new Map(
+    searchResult.objects.map((obj) => [obj.package.name, obj.package]),
   )
 
-  // Ensure plugins directory exists
+  // Step 2: Read current package.json and update dependencies
+  const pkg = await readPackageJson()
+  const existingDeps = new Set(Object.keys(pkg.dependencies || {}))
+  let depsChanged = false
+
+  for (const { package: npmPkg } of searchResult.objects) {
+    if (!existingDeps.has(npmPkg.name)) {
+      console.log(`Adding new dependency: ${npmPkg.name}`)
+      pkg.dependencies = pkg.dependencies || {}
+      pkg.dependencies[npmPkg.name] = 'latest'
+      depsChanged = true
+    }
+  }
+
+  // Step 3: Write updated package.json and run npm install
+  if (depsChanged) {
+    await writePackageJson(pkg)
+    console.log('\nRunning pnpm install to fetch packages...')
+    execSync('pnpm install', { stdio: 'inherit' })
+    console.log()
+  } else {
+    console.log('No new packages to add.\n')
+    // Still run install to ensure we have latest versions
+    console.log('Running pnpm update to check for updates...')
+    execSync('pnpm update', { stdio: 'inherit' })
+    console.log()
+  }
+
+  // Step 4: Process all installed packages
   await fs.mkdir(PLUGINS_DIR, { recursive: true })
 
-  // Process each package
   const plugins: PluginInfo[] = []
-  for (const { package: pkg } of searchResult.objects) {
-    // Check if we already have this exact version
-    const existingPlugin = existingMap.get(`${pkg.name}@${pkg.version}`)
-    if (existingPlugin) {
-      console.log(`Skipping ${pkg.name}@${pkg.version} (already processed)`)
-      plugins.push(existingPlugin)
-      continue
-    }
+  const deps = Object.keys(pkg.dependencies || {})
 
-    const pluginInfo = await processPackage(pkg)
+  console.log(`Processing ${deps.length} packages...\n`)
+
+  for (const depName of deps) {
+    console.log(`Processing ${depName}...`)
+    const searchInfo = searchMap.get(depName) || null
+    const pluginInfo = await processInstalledPackage(depName, searchInfo)
     if (pluginInfo) {
       plugins.push(pluginInfo)
     }
