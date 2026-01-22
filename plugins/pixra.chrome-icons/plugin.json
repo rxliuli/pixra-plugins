@@ -1,0 +1,22 @@
+{
+  "id": "pixra.chrome-icons",
+  "name": "Chrome Extension Icons",
+  "description": "Export current image as Chrome extension icons (16/32/48/96/128) in a ZIP file",
+  "contributes": {
+    "commands": [
+      {
+        "command": "chromeIcons.export",
+        "title": "Export Chrome Icons"
+      }
+    ],
+    "menus": {
+      "tools": [
+        {
+          "command": "chromeIcons.export"
+        }
+      ]
+    }
+  },
+  "version": "0.0.2",
+  "main": "plugin.js"
+}

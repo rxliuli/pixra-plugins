@@ -1,0 +1,29 @@
+{
+  "id": "pixra.remove-bg",
+  "name": "Remove Background",
+  "description": "Remove background from images using AI (WebGPU/WASM)",
+  "contributes": {
+    "commands": [
+      {
+        "command": "removeBg.remove",
+        "title": "Remove Background"
+      }
+    ],
+    "menus": {
+      "tools": [
+        {
+          "command": "removeBg.remove"
+        }
+      ]
+    }
+  },
+  "permissions": [
+    "fetch"
+  ],
+  "host_permissions": [
+    "https://cdn.jsdelivr.net/*",
+    "https://huggingface.co/*"
+  ],
+  "version": "0.0.1",
+  "main": "plugin.js"
+}
