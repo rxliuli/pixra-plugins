@@ -6,7 +6,8 @@
     "commands": [
       {
         "command": "removeBg.remove",
-        "title": "Remove Background"
+        "title": "Remove Background",
+        "enablement": "hasActiveTab"
       }
     ],
     "menus": {
@@ -24,6 +25,6 @@
     "https://cdn.jsdelivr.net/*",
     "https://huggingface.co/*"
   ],
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "plugin.js"
 }

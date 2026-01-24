@@ -10,13 +10,13 @@ importers:
     dependencies:
       '@pixra/chrome-icons':
         specifier: latest
-        version: 0.0.4
+        version: 0.0.5
       '@pixra/remove-bg':
         specifier: latest
-        version: 0.0.3(@huggingface/transformers@3.8.1)
+        version: 0.0.4(@huggingface/transformers@3.8.1)
       '@pixra/smart-crop':
         specifier: latest
-        version: 0.0.6
+        version: 0.0.7
     devDependencies:
       '@types/node':
         specifier: ^25.0.10
@@ -340,14 +340,14 @@ packages:
     resolution: {integrity: sha512-wgm9Ehl2jpeqP3zw/7mo3kRHFp5MEDhqAdwy1fTGkHAwnkGOVsgpvQhL8B5n1qlb01jV3n/bI0ZfZp5lWA1k4w==}
     engines: {node: '>=18.0.0'}
 
-  '@pixra/chrome-icons@0.0.4':
-    resolution: {integrity: sha512-OSWypd523/+bCJExI58yKeHBxIoE/9ZOzqwLu1XJeZZVL6Xd1dMpAK0qy3KmpghQKxerbZl8LSkOsOdvpkPIfg==}
+  '@pixra/chrome-icons@0.0.5':
+    resolution: {integrity: sha512-nJzv++Gp9JCHDFmteYvzRNmfOxuFl3uLnlXQxMxzAzL+doHxEKTNq7cz5RytRtxZOZ3bvZiiy3C70wp0dbl72g==}
 
-  '@pixra/remove-bg@0.0.3':
-    resolution: {integrity: sha512-EkzUchKOXOoMHtAPxKyh0R6xO1psDbBaFw8epDmvUK/akKaYOSHRRhKHPoXkN+gTsr8p6AhbxcTSPUIjxPvS6w==}
+  '@pixra/remove-bg@0.0.4':
+    resolution: {integrity: sha512-Us0eNXQE/M4Hvdoxg3vJXRyST0RYyd9+1vH9WRVhQeHiROd4gEzkYIQBbt1s/bFioetLDZgxaxTl/bIZsHPD2A==}
 
-  '@pixra/smart-crop@0.0.6':
-    resolution: {integrity: sha512-MNQiqUHaJIQ5hNkGAYfdjHH7Zy+Fjv5E600F2OjplDlh4zqMEvKcjwYtv1XJpSwJ0wUKd9H3ZGy33dWUV21pqA==}
+  '@pixra/smart-crop@0.0.7':
+    resolution: {integrity: sha512-b8QtKTOKCoG28KFUUNkRCJA6oG0woFi6svamBT8RJU8zfWol4im1nlsoCGk6ZWxx4I5t+MsFq4JiizardEB+ig==}
 
   '@protobufjs/aspromise@1.1.2':
     resolution: {integrity: sha512-j+gKExEuLmKwvz3OgROXtrJ2UG2x8Ch2YZUxahh+s1F2HZ+wAceUNLkvy6zKCPVRkU++ZWQrdxsUeQXmcg4uoQ==}
@@ -788,17 +788,17 @@ snapshots:
     dependencies:
       minipass: 7.1.2
 
-  '@pixra/chrome-icons@0.0.4':
+  '@pixra/chrome-icons@0.0.5':
     dependencies:
       jszip: 3.10.1
 
-  '@pixra/remove-bg@0.0.3(@huggingface/transformers@3.8.1)':
+  '@pixra/remove-bg@0.0.4(@huggingface/transformers@3.8.1)':
     dependencies:
       rembg-webgpu: 0.2.1(@huggingface/transformers@3.8.1)
     transitivePeerDependencies:
       - '@huggingface/transformers'
 
-  '@pixra/smart-crop@0.0.6': {}
+  '@pixra/smart-crop@0.0.7': {}
 
   '@protobufjs/aspromise@1.1.2': {}
 

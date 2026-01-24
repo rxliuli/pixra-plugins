@@ -6,7 +6,8 @@
     "commands": [
       {
         "command": "smartCrop.crop",
-        "title": "Smart Crop"
+        "title": "Smart Crop",
+        "enablement": "hasActiveTab"
       }
     ],
     "menus": {
@@ -17,6 +18,6 @@
       ]
     }
   },
-  "version": "0.0.6",
+  "version": "0.0.7",
   "main": "plugin.js"
 }

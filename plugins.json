@@ -1,41 +1,41 @@
 {
-  "updatedAt": "2026-01-24T02:54:43.807Z",
+  "updatedAt": "2026-01-24T06:59:50.563Z",
   "plugins": [
-    {
-      "id": "pixra.smart-crop",
-      "name": "Smart Crop",
-      "description": "Automatically remove transparent edges and crop image to content bounds with optional padding",
-      "version": "0.0.6",
-      "author": "Pixra Team",
-      "license": "AGPL-3.0-only",
-      "publisher": "GitHub Actions",
-      "official": true,
-      "publishedAt": "2026-01-24T02:53:45.883Z",
-      "size": 1563
-    },
     {
       "id": "pixra.remove-bg",
       "name": "Remove Background",
       "description": "Remove background from images using AI (WebGPU/WASM)",
-      "version": "0.0.3",
+      "version": "0.0.4",
       "author": "Pixra Team",
       "license": "AGPL-3.0-only",
-      "publisher": "rxliuli",
+      "publisher": "GitHub Actions",
       "official": true,
-      "publishedAt": "2026-01-22T07:45:32.766Z",
-      "size": 344078
+      "publishedAt": "2026-01-24T06:59:00.690Z",
+      "size": 344557
     },
     {
       "id": "pixra.chrome-icons",
       "name": "Chrome Extension Icons",
       "description": "Export current image as Chrome extension icons (16/32/48/96/128) in a ZIP file",
-      "version": "0.0.4",
+      "version": "0.0.5",
       "author": "Pixra Team",
       "license": "AGPL-3.0-only",
-      "publisher": "rxliuli",
+      "publisher": "GitHub Actions",
       "official": true,
-      "publishedAt": "2026-01-22T07:30:47.436Z",
-      "size": 35520
+      "publishedAt": "2026-01-24T06:53:55.372Z",
+      "size": 35542
+    },
+    {
+      "id": "pixra.smart-crop",
+      "name": "Smart Crop",
+      "description": "Automatically remove transparent edges and crop image to content bounds with optional padding",
+      "version": "0.0.7",
+      "author": "Pixra Team",
+      "license": "AGPL-3.0-only",
+      "publisher": "GitHub Actions",
+      "official": true,
+      "publishedAt": "2026-01-24T06:50:35.395Z",
+      "size": 1582
     }
   ]
 }
