@@ -1,6 +1,6 @@
 {
   "id": "pixra.smart-crop",
-  "name": "Smart Crop",
+  "name": "Icon Crop",
   "description": "Automatically remove transparent edges and crop image to content bounds with optional padding",
   "contributes": {
     "commands": [
@@ -18,6 +18,6 @@
       ]
     }
   },
-  "version": "0.0.7",
-  "main": "plugin.js"
+  "version": "0.0.9",
+  "main": "plugin"
 }

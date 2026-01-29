@@ -16,11 +16,11 @@ importers:
         version: 0.0.4(@huggingface/transformers@3.8.1)
       '@pixra/smart-crop':
         specifier: latest
-        version: 0.0.7
+        version: 0.0.9
     devDependencies:
       '@types/node':
-        specifier: ^25.0.10
-        version: 25.0.10
+        specifier: ^25.1.0
+        version: 25.1.0
       jszip:
         specifier: ^3.10.1
         version: 3.10.1
@@ -192,8 +192,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@huggingface/jinja@0.5.3':
-    resolution: {integrity: sha512-asqfZ4GQS0hD876Uw4qiUb7Tr/V5Q+JZuo2L+BtdrD4U40QU58nIRq3ZSgAzJgT874VLjhGVacaYfrdpXtEvtA==}
+  '@huggingface/jinja@0.5.4':
+    resolution: {integrity: sha512-VoQJywjpjy2D88Oj0BTHRuS8JCbUgoOg5t1UGgbtGh2fRia9Dx/k6Wf8FqrEWIvWK9fAkfJeeLB9fcSpCNPCpw==}
     engines: {node: '>=18'}
 
   '@huggingface/transformers@3.8.1':
@@ -346,8 +346,8 @@ packages:
   '@pixra/remove-bg@0.0.4':
     resolution: {integrity: sha512-Us0eNXQE/M4Hvdoxg3vJXRyST0RYyd9+1vH9WRVhQeHiROd4gEzkYIQBbt1s/bFioetLDZgxaxTl/bIZsHPD2A==}
 
-  '@pixra/smart-crop@0.0.7':
-    resolution: {integrity: sha512-b8QtKTOKCoG28KFUUNkRCJA6oG0woFi6svamBT8RJU8zfWol4im1nlsoCGk6ZWxx4I5t+MsFq4JiizardEB+ig==}
+  '@pixra/smart-crop@0.0.9':
+    resolution: {integrity: sha512-JrXF65fouqaXWGOXrbjRmZ4zem+8qrvZsKSxNO1ocn42rV6KAhLD+/zu9lDCar77oAJx40qt0b3bE1GyTsBZWg==}
 
   '@protobufjs/aspromise@1.1.2':
     resolution: {integrity: sha512-j+gKExEuLmKwvz3OgROXtrJ2UG2x8Ch2YZUxahh+s1F2HZ+wAceUNLkvy6zKCPVRkU++ZWQrdxsUeQXmcg4uoQ==}
@@ -379,8 +379,8 @@ packages:
   '@protobufjs/utf8@1.1.0':
     resolution: {integrity: sha512-Vvn3zZrhQZkkBE8LSuW3em98c0FwgO4nxzv6OdSxPKJIEKY2bGbHn+mhGIPerzI4twdxaP8/0+06HBpwf345Lw==}
 
-  '@types/node@25.0.10':
-    resolution: {integrity: sha512-zWW5KPngR/yvakJgGOmZ5vTBemDoSqF3AcV/LrO5u5wTWyEAVVh+IT39G4gtyAkh3CtTZs8aX/yRM82OfzHJRg==}
+  '@types/node@25.1.0':
+    resolution: {integrity: sha512-t7frlewr6+cbx+9Ohpl0NOTKXZNV9xHRmNOvql47BFJKcEG1CxtxlPEEe+gR9uhVWM4DwhnvTF110mIL4yP9RA==}
 
   boolean@3.2.0:
     resolution: {integrity: sha512-d0II/GO9uf9lfUHH2BQsjxzRJZBdsjgsBiW4BvhWk/3qoKwQFjIDVN19PfX8F2D/r9PCMTtLWjYVCFrpeYUzsw==}
@@ -563,8 +563,8 @@ packages:
   string_decoder@1.1.1:
     resolution: {integrity: sha512-n/ShnvDi6FHbbVfviro+WojiFzv+s8MPMHBczVePfUpDJLwoLT0ht1l4YwBCbi8pJAveEEdnkHyPyTP/mzRfwg==}
 
-  tar@7.5.6:
-    resolution: {integrity: sha512-xqUeu2JAIJpXyvskvU3uvQW8PAmHrtXp2KDuMJwQqW8Sqq0CaZBAQ+dKS3RBXVhU4wC5NjAdKrmh84241gO9cA==}
+  tar@7.5.7:
+    resolution: {integrity: sha512-fov56fJiRuThVFXD6o6/Q354S7pnWMJIVlDBYijsTNx6jKSE4pvrDTs6lUnmGvNyfJwFQQwWy3owKz1ucIhveQ==}
     engines: {node: '>=18'}
 
   tslib@2.8.1:
@@ -679,11 +679,11 @@ snapshots:
   '@esbuild/win32-x64@0.27.2':
     optional: true
 
-  '@huggingface/jinja@0.5.3': {}
+  '@huggingface/jinja@0.5.4': {}
 
   '@huggingface/transformers@3.8.1':
     dependencies:
-      '@huggingface/jinja': 0.5.3
+      '@huggingface/jinja': 0.5.4
       onnxruntime-node: 1.21.0
       onnxruntime-web: 1.22.0-dev.20250409-89f8206ba4
       sharp: 0.34.5
@@ -798,7 +798,7 @@ snapshots:
     transitivePeerDependencies:
       - '@huggingface/transformers'
 
-  '@pixra/smart-crop@0.0.7': {}
+  '@pixra/smart-crop@0.0.9': {}
 
   '@protobufjs/aspromise@1.1.2': {}
 
@@ -823,7 +823,7 @@ snapshots:
 
   '@protobufjs/utf8@1.1.0': {}
 
-  '@types/node@25.0.10':
+  '@types/node@25.1.0':
     dependencies:
       undici-types: 7.16.0
 
@@ -958,7 +958,7 @@ snapshots:
     dependencies:
       global-agent: 3.0.0
       onnxruntime-common: 1.21.0
-      tar: 7.5.6
+      tar: 7.5.7
 
   onnxruntime-web@1.22.0-dev.20250409-89f8206ba4:
     dependencies:
@@ -987,7 +987,7 @@ snapshots:
       '@protobufjs/path': 1.1.2
       '@protobufjs/pool': 1.1.0
       '@protobufjs/utf8': 1.1.0
-      '@types/node': 25.0.10
+      '@types/node': 25.1.0
       long: 5.3.2
 
   readable-stream@2.3.8:
@@ -1064,7 +1064,7 @@ snapshots:
     dependencies:
       safe-buffer: 5.1.2
 
-  tar@7.5.6:
+  tar@7.5.7:
     dependencies:
       '@isaacs/fs-minipass': 4.0.1
       chownr: 3.0.0

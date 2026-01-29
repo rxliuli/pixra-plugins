@@ -1,6 +1,18 @@
 {
-  "updatedAt": "2026-01-24T06:59:50.563Z",
+  "updatedAt": "2026-01-29T08:06:02.355Z",
   "plugins": [
+    {
+      "id": "pixra.smart-crop",
+      "name": "Icon Crop",
+      "description": "Automatically remove transparent edges and crop image to content bounds with optional padding",
+      "version": "0.0.9",
+      "author": "Pixra Team",
+      "license": "AGPL-3.0-only",
+      "publisher": "GitHub Actions",
+      "official": true,
+      "publishedAt": "2026-01-29T08:01:27.518Z",
+      "size": 1574
+    },
     {
       "id": "pixra.remove-bg",
       "name": "Remove Background",
@@ -24,18 +36,6 @@
       "official": true,
       "publishedAt": "2026-01-24T06:53:55.372Z",
       "size": 35542
-    },
-    {
-      "id": "pixra.smart-crop",
-      "name": "Smart Crop",
-      "description": "Automatically remove transparent edges and crop image to content bounds with optional padding",
-      "version": "0.0.7",
-      "author": "Pixra Team",
-      "license": "AGPL-3.0-only",
-      "publisher": "GitHub Actions",
-      "official": true,
-      "publishedAt": "2026-01-24T06:50:35.395Z",
-      "size": 1582
     }
   ]
 }
