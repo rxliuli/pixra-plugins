@@ -16,7 +16,7 @@ importers:
         version: 0.0.4(@huggingface/transformers@3.8.1)
       '@pixra/smart-crop':
         specifier: latest
-        version: 0.0.9
+        version: 0.0.10
     devDependencies:
       '@types/node':
         specifier: ^25.1.0
@@ -346,8 +346,8 @@ packages:
   '@pixra/remove-bg@0.0.4':
     resolution: {integrity: sha512-Us0eNXQE/M4Hvdoxg3vJXRyST0RYyd9+1vH9WRVhQeHiROd4gEzkYIQBbt1s/bFioetLDZgxaxTl/bIZsHPD2A==}
 
-  '@pixra/smart-crop@0.0.9':
-    resolution: {integrity: sha512-JrXF65fouqaXWGOXrbjRmZ4zem+8qrvZsKSxNO1ocn42rV6KAhLD+/zu9lDCar77oAJx40qt0b3bE1GyTsBZWg==}
+  '@pixra/smart-crop@0.0.10':
+    resolution: {integrity: sha512-ukhZ8qeRHh9BdjCaNMuDT77Nk5E5fh5QLPqvaZsxPQowgg8MZJp+I++220OTbmQzuYf6YydEHckCKdmaiQmEAQ==}
 
   '@protobufjs/aspromise@1.1.2':
     resolution: {integrity: sha512-j+gKExEuLmKwvz3OgROXtrJ2UG2x8Ch2YZUxahh+s1F2HZ+wAceUNLkvy6zKCPVRkU++ZWQrdxsUeQXmcg4uoQ==}
@@ -798,7 +798,7 @@ snapshots:
     transitivePeerDependencies:
       - '@huggingface/transformers'
 
-  '@pixra/smart-crop@0.0.9': {}
+  '@pixra/smart-crop@0.0.10': {}
 
   '@protobufjs/aspromise@1.1.2': {}
 
