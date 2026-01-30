@@ -1,6 +1,18 @@
 {
-  "updatedAt": "2026-01-30T08:48:30.821Z",
+  "updatedAt": "2026-01-30T09:16:44.700Z",
   "plugins": [
+    {
+      "id": "pixra.chrome-icons",
+      "name": "Chrome Extension Icons",
+      "description": "Export current image as Chrome extension icons (16/32/48/96/128) in a ZIP file",
+      "version": "0.0.7",
+      "author": "Pixra Team",
+      "license": "AGPL-3.0-only",
+      "publisher": "GitHub Actions",
+      "official": true,
+      "publishedAt": "2026-01-30T08:48:51.510Z",
+      "size": 35565
+    },
     {
       "id": "pixra.smart-crop",
       "name": "Icon Crop",
@@ -24,18 +36,6 @@
       "official": true,
       "publishedAt": "2026-01-24T06:59:00.690Z",
       "size": 344557
-    },
-    {
-      "id": "pixra.chrome-icons",
-      "name": "Chrome Extension Icons",
-      "description": "Export current image as Chrome extension icons (16/32/48/96/128) in a ZIP file",
-      "version": "0.0.5",
-      "author": "Pixra Team",
-      "license": "AGPL-3.0-only",
-      "publisher": "GitHub Actions",
-      "official": true,
-      "publishedAt": "2026-01-24T06:53:55.372Z",
-      "size": 35542
     }
   ]
 }
