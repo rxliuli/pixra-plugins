@@ -1,6 +1,20 @@
 {
-  "updatedAt": "2026-01-30T17:41:57.415Z",
+  "updatedAt": "2026-01-30T17:45:46.132Z",
   "plugins": [
+    {
+      "id": "pixra.chrome-icons",
+      "name": "Chrome Extension Icons",
+      "description": "Export current image as Chrome extension icons (16/32/48/96/128) in a ZIP file",
+      "version": "0.0.10",
+      "author": "Pixra Team",
+      "repository": "https://github.com/rxliuli/pixra",
+      "homepage": "https://pixra.rxliuli.com",
+      "license": "AGPL-3.0-only",
+      "publisher": "GitHub Actions",
+      "official": true,
+      "publishedAt": "2026-01-30T17:41:23.869Z",
+      "size": 35639
+    },
     {
       "id": "pixra.ico-export",
       "name": "ICO Export",
@@ -14,20 +28,6 @@
       "official": true,
       "publishedAt": "2026-01-30T15:52:46.780Z",
       "size": 1808
-    },
-    {
-      "id": "pixra.chrome-icons",
-      "name": "Chrome Extension Icons",
-      "description": "Export current image as Chrome extension icons (16/32/48/96/128) in a ZIP file",
-      "version": "0.0.10",
-      "author": "Pixra Team",
-      "repository": "https://github.com/rxliuli/pixra",
-      "homepage": "https://pixra.rxliuli.com",
-      "license": "AGPL-3.0-only",
-      "publisher": "GitHub Actions",
-      "official": true,
-      "publishedAt": "2026-01-30T12:47:48.685Z",
-      "size": 35639
     },
     {
       "id": "pixra.smart-crop",
