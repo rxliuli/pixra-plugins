@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@pixra/chrome-icons':
         specifier: latest
-        version: 0.0.9
+        version: 0.0.10
       '@pixra/ico-export':
         specifier: latest
         version: 0.0.7
@@ -343,8 +343,8 @@ packages:
     resolution: {integrity: sha512-wgm9Ehl2jpeqP3zw/7mo3kRHFp5MEDhqAdwy1fTGkHAwnkGOVsgpvQhL8B5n1qlb01jV3n/bI0ZfZp5lWA1k4w==}
     engines: {node: '>=18.0.0'}
 
-  '@pixra/chrome-icons@0.0.9':
-    resolution: {integrity: sha512-1OxstM9irhF+UPxJCMHJ/W4E/NnKsbgKfBWDAdLK/u/4jWEBfBUAnu7x1iY8kt2IZk1+jkIbZOH/imetyWc8pg==}
+  '@pixra/chrome-icons@0.0.10':
+    resolution: {integrity: sha512-gGPt2BhmEu4EBTyxoq7BTNLqhc0nlYm0TM6/jS1VlJrNo7zUjLfhOOiymSNji+wRkjpQFeQC+hnNasdyCsP74A==}
 
   '@pixra/ico-export@0.0.7':
     resolution: {integrity: sha512-BNAFZV6uIjITgKycbHG7y8C3PWDEXDFd/lXKaV6uv1yq86oJ6q4v3ZpIc2GQ3Y0XDM/cz9hhrkUpqunXoB420w==}
@@ -794,7 +794,7 @@ snapshots:
     dependencies:
       minipass: 7.1.2
 
-  '@pixra/chrome-icons@0.0.9':
+  '@pixra/chrome-icons@0.0.10':
     dependencies:
       jszip: 3.10.1
 
