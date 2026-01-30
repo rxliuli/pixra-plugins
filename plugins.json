@@ -1,18 +1,18 @@
 {
-  "updatedAt": "2026-01-30T15:46:55.605Z",
+  "updatedAt": "2026-01-30T16:14:13.191Z",
   "plugins": [
     {
       "id": "pixra.ico-export",
       "name": "ICO Export",
       "description": "Export current image as a Windows .ico file (multi-size)",
-      "version": "0.0.6",
+      "version": "0.0.7",
       "author": "Pixra Team",
       "repository": "https://github.com/rxliuli/pixra",
       "homepage": "https://pixra.rxliuli.com",
       "license": "AGPL-3.0-only",
       "publisher": "GitHub Actions",
       "official": true,
-      "publishedAt": "2026-01-30T12:48:05.265Z",
+      "publishedAt": "2026-01-30T15:52:46.780Z",
       "size": 1808
     },
     {
