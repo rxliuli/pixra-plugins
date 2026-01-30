@@ -16,6 +16,7 @@
   "dependencies": {
     "@pixra/chrome-icons": "latest",
     "@pixra/remove-bg": "latest",
-    "@pixra/smart-crop": "latest"
+    "@pixra/smart-crop": "latest",
+    "@pixra/ico-export": "latest"
   }
 }

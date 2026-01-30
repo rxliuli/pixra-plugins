@@ -11,6 +11,9 @@ importers:
       '@pixra/chrome-icons':
         specifier: latest
         version: 0.0.7
+      '@pixra/ico-export':
+        specifier: latest
+        version: 0.0.4
       '@pixra/remove-bg':
         specifier: latest
         version: 0.0.4(@huggingface/transformers@3.8.1)
@@ -342,6 +345,9 @@ packages:
 
   '@pixra/chrome-icons@0.0.7':
     resolution: {integrity: sha512-QIfrpFsemNvGTNPQEf2Syh21u+KsRLq9KOxiZdbqIM+ad1UZ3iiaBsMakH1RQr5bcZG0+/H0eFGxqLDsi8APtw==}
+
+  '@pixra/ico-export@0.0.4':
+    resolution: {integrity: sha512-Bw2vg01HEY+VMdvJncfEj9/YAZS+7IbG3pdKuACl6VgPSnm+pU8msLQ3W5B4pdg/SLI6uBgPuimeUQi46JTiYQ==}
 
   '@pixra/remove-bg@0.0.4':
     resolution: {integrity: sha512-Us0eNXQE/M4Hvdoxg3vJXRyST0RYyd9+1vH9WRVhQeHiROd4gEzkYIQBbt1s/bFioetLDZgxaxTl/bIZsHPD2A==}
@@ -791,6 +797,8 @@ snapshots:
   '@pixra/chrome-icons@0.0.7':
     dependencies:
       jszip: 3.10.1
+
+  '@pixra/ico-export@0.0.4': {}
 
   '@pixra/remove-bg@0.0.4(@huggingface/transformers@3.8.1)':
     dependencies:

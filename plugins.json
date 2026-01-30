@@ -1,6 +1,19 @@
 {
-  "updatedAt": "2026-01-30T11:41:59.187Z",
+  "updatedAt": "2026-01-30T12:16:05.259Z",
   "plugins": [
+    {
+      "id": "pixra.ico-export",
+      "name": "ICO Export",
+      "description": "Export current image as a Windows .ico file (multi-size)",
+      "version": "0.0.4",
+      "author": "Pixra Team",
+      "repository": "https://github.com/rxliuli/pixra",
+      "license": "AGPL-3.0-only",
+      "publisher": "GitHub Actions",
+      "official": true,
+      "publishedAt": "2026-01-30T12:13:10.085Z",
+      "size": 1857
+    },
     {
       "id": "pixra.chrome-icons",
       "name": "Chrome Extension Icons",
