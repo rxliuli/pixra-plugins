@@ -17,6 +17,7 @@
     "@pixra/chrome-icons": "latest",
     "@pixra/remove-bg": "latest",
     "@pixra/smart-crop": "latest",
-    "@pixra/ico-export": "latest"
+    "@pixra/ico-export": "latest",
+    "@pixra/grok-edit": "latest"
   }
 }
