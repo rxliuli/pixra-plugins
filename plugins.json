@@ -1,19 +1,19 @@
 {
-  "updatedAt": "2026-01-31T09:21:06.059Z",
+  "updatedAt": "2026-01-31T09:41:57.639Z",
   "plugins": [
     {
       "id": "pixra.grok-edit",
       "name": "Grok Image Edit",
       "description": "AI-powered image editing using Grok AI API",
-      "version": "0.0.1",
+      "version": "0.0.2",
       "author": "Pixra Team",
       "repository": "https://github.com/rxliuli/pixra",
       "homepage": "https://pixra.rxliuli.com",
       "license": "AGPL-3.0-only",
-      "publisher": "rxliuli",
+      "publisher": "GitHub Actions",
       "official": true,
-      "publishedAt": "2026-01-31T09:18:43.269Z",
-      "size": 2431
+      "publishedAt": "2026-01-31T09:39:07.677Z",
+      "size": 2335
     },
     {
       "id": "pixra.chrome-icons",

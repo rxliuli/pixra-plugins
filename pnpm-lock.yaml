@@ -13,7 +13,7 @@ importers:
         version: 0.0.10
       '@pixra/grok-edit':
         specifier: latest
-        version: 0.0.1
+        version: 0.0.2
       '@pixra/ico-export':
         specifier: latest
         version: 0.0.7
@@ -349,8 +349,8 @@ packages:
   '@pixra/chrome-icons@0.0.10':
     resolution: {integrity: sha512-gGPt2BhmEu4EBTyxoq7BTNLqhc0nlYm0TM6/jS1VlJrNo7zUjLfhOOiymSNji+wRkjpQFeQC+hnNasdyCsP74A==}
 
-  '@pixra/grok-edit@0.0.1':
-    resolution: {integrity: sha512-EGKTMaz0jlu3PXUGgeCko2yNTd7ShNFJV+lSM7+X8xQn0zedNG8n8QDXZdbziZxexT1fSet89EA18ISGQN/f6A==}
+  '@pixra/grok-edit@0.0.2':
+    resolution: {integrity: sha512-HoG8mtsOhhuOIPVHiRvVRNIGqb7yNhdHLimK7CpCGSXWLhp8X5yNojUXf1gmh79ItxgPpa6xHqLUeN1PoW6WwA==}
 
   '@pixra/ico-export@0.0.7':
     resolution: {integrity: sha512-BNAFZV6uIjITgKycbHG7y8C3PWDEXDFd/lXKaV6uv1yq86oJ6q4v3ZpIc2GQ3Y0XDM/cz9hhrkUpqunXoB420w==}
@@ -804,7 +804,7 @@ snapshots:
     dependencies:
       jszip: 3.10.1
 
-  '@pixra/grok-edit@0.0.1': {}
+  '@pixra/grok-edit@0.0.2': {}
 
   '@pixra/ico-export@0.0.7': {}
 
