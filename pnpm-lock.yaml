@@ -17,6 +17,9 @@ importers:
       '@pixra/ico-export':
         specifier: latest
         version: 0.0.7
+      '@pixra/macos-screenshot-crop':
+        specifier: latest
+        version: 0.0.1
       '@pixra/remove-bg':
         specifier: latest
         version: 0.0.4(@huggingface/transformers@3.8.1)
@@ -354,6 +357,9 @@ packages:
 
   '@pixra/ico-export@0.0.7':
     resolution: {integrity: sha512-BNAFZV6uIjITgKycbHG7y8C3PWDEXDFd/lXKaV6uv1yq86oJ6q4v3ZpIc2GQ3Y0XDM/cz9hhrkUpqunXoB420w==}
+
+  '@pixra/macos-screenshot-crop@0.0.1':
+    resolution: {integrity: sha512-2X3IYatD0Bj4pz0fvuP9GvCc0ItttYeOkDcjYSo3dlWSYZFmw2Y3BhmfQ3q83FsKA5WPehXro/08wVIHn45P3g==}
 
   '@pixra/remove-bg@0.0.4':
     resolution: {integrity: sha512-Us0eNXQE/M4Hvdoxg3vJXRyST0RYyd9+1vH9WRVhQeHiROd4gEzkYIQBbt1s/bFioetLDZgxaxTl/bIZsHPD2A==}
@@ -807,6 +813,8 @@ snapshots:
   '@pixra/grok-edit@0.0.2': {}
 
   '@pixra/ico-export@0.0.7': {}
+
+  '@pixra/macos-screenshot-crop@0.0.1': {}
 
   '@pixra/remove-bg@0.0.4(@huggingface/transformers@3.8.1)':
     dependencies:

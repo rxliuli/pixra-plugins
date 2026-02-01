@@ -1,6 +1,20 @@
 {
-  "updatedAt": "2026-02-01T13:21:14.391Z",
+  "updatedAt": "2026-02-01T13:35:09.392Z",
   "plugins": [
+    {
+      "id": "pixra.macos-screenshot-crop",
+      "name": "macOS Screenshot Crop",
+      "description": "Automatically detect and crop macOS screenshot rounded corners to transparent",
+      "version": "0.0.1",
+      "author": "Pixra Team",
+      "repository": "https://github.com/rxliuli/pixra",
+      "homepage": "https://pixra.rxliuli.com",
+      "license": "AGPL-3.0-only",
+      "publisher": "rxliuli",
+      "official": true,
+      "publishedAt": "2026-02-01T13:31:17.379Z",
+      "size": 2276
+    },
     {
       "id": "pixra.grok-edit",
       "name": "Grok Image Edit",

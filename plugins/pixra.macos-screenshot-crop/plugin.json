@@ -1,0 +1,23 @@
+{
+  "id": "pixra.macos-screenshot-crop",
+  "name": "macOS Screenshot Crop",
+  "description": "Automatically detect and crop macOS screenshot rounded corners to transparent",
+  "contributes": {
+    "commands": [
+      {
+        "command": "macos-screenshot-crop.crop",
+        "title": "macOS Screenshot Crop",
+        "enablement": "hasActiveTab"
+      }
+    ],
+    "menus": {
+      "tools": [
+        {
+          "command": "macos-screenshot-crop.crop"
+        }
+      ]
+    }
+  },
+  "version": "0.0.1",
+  "main": "plugin"
+}
