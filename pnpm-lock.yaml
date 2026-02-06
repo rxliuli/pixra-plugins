@@ -454,8 +454,8 @@ packages:
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
 
-  get-tsconfig@4.13.3:
-    resolution: {integrity: sha512-vp8Cj/+9Q/ibZUrq1rhy8mCTQpCk31A3uu9wc1C50yAb3x2pFHOsGdAZQ7jD86ARayyxZUViYeIztW+GE8dcrg==}
+  get-tsconfig@4.13.4:
+    resolution: {integrity: sha512-gKvvu/fh0hxWmR/Ty0Goc3u/GADL9IgyhNAPD8hElRVO9dTOawCuyGNURCjaSTB4ZNP/OAUaSXmR2LhitzkLug==}
 
   global-agent@3.0.0:
     resolution: {integrity: sha512-PT6XReJ+D07JvGoxQMkT6qji/jVNfX/h364XHZOWeRzy64sSFr+xJ5OX7LI3b4MPQzdL4H8Y8M0xzPpsVMwA8Q==}
@@ -915,7 +915,7 @@ snapshots:
   fsevents@2.3.3:
     optional: true
 
-  get-tsconfig@4.13.3:
+  get-tsconfig@4.13.4:
     dependencies:
       resolve-pkg-maps: 1.0.0
 
@@ -1102,7 +1102,7 @@ snapshots:
   tsx@4.21.0:
     dependencies:
       esbuild: 0.27.3
-      get-tsconfig: 4.13.3
+      get-tsconfig: 4.13.4
     optionalDependencies:
       fsevents: 2.3.3
 
