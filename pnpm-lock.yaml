@@ -11,6 +11,9 @@ importers:
       '@pixra/chrome-icons':
         specifier: latest
         version: 0.0.10
+      '@pixra/gemini-watermark-remover':
+        specifier: latest
+        version: 0.0.2
       '@pixra/grok-edit':
         specifier: latest
         version: 0.0.2
@@ -351,6 +354,9 @@ packages:
 
   '@pixra/chrome-icons@0.0.10':
     resolution: {integrity: sha512-gGPt2BhmEu4EBTyxoq7BTNLqhc0nlYm0TM6/jS1VlJrNo7zUjLfhOOiymSNji+wRkjpQFeQC+hnNasdyCsP74A==}
+
+  '@pixra/gemini-watermark-remover@0.0.2':
+    resolution: {integrity: sha512-92RTslgstecKjWkC6MPmurhSMGTxQrkPreYiN/lSyqJTdWpeFNhJ4v6d3WXiULXis1jUmrgTy9u1f4E05FixxA==}
 
   '@pixra/grok-edit@0.0.2':
     resolution: {integrity: sha512-HoG8mtsOhhuOIPVHiRvVRNIGqb7yNhdHLimK7CpCGSXWLhp8X5yNojUXf1gmh79ItxgPpa6xHqLUeN1PoW6WwA==}
@@ -809,6 +815,8 @@ snapshots:
   '@pixra/chrome-icons@0.0.10':
     dependencies:
       jszip: 3.10.1
+
+  '@pixra/gemini-watermark-remover@0.0.2': {}
 
   '@pixra/grok-edit@0.0.2': {}
 

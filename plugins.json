@@ -1,6 +1,20 @@
 {
-  "updatedAt": "2026-02-13T10:47:35.644Z",
+  "updatedAt": "2026-02-13T11:15:49.889Z",
   "plugins": [
+    {
+      "id": "pixra.gemini-watermark-remover",
+      "name": "Gemini Watermark Remover",
+      "description": "Remove visible watermarks from Gemini AI-generated images using reverse alpha blending",
+      "version": "0.0.2",
+      "author": "Pixra Team",
+      "repository": "https://github.com/rxliuli/pixra",
+      "homepage": "https://pixra.rxliuli.com",
+      "license": "AGPL-3.0-only",
+      "publisher": "rxliuli",
+      "official": true,
+      "publishedAt": "2026-02-13T10:49:56.475Z",
+      "size": 6964
+    },
     {
       "id": "pixra.macos-screenshot-crop",
       "name": "macOS Screenshot Crop",

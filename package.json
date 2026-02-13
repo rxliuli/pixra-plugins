@@ -19,6 +19,7 @@
     "@pixra/ico-export": "latest",
     "@pixra/macos-screenshot-crop": "latest",
     "@pixra/remove-bg": "latest",
-    "@pixra/smart-crop": "latest"
+    "@pixra/smart-crop": "latest",
+    "@pixra/gemini-watermark-remover": "latest"
   }
 }
