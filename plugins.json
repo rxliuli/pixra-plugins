@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-20T10:46:53.687Z",
+  "updatedAt": "2026-02-20T11:14:17.651Z",
   "plugins": [
     {
       "id": "pixra.gemini-watermark-remover",
@@ -10,9 +10,9 @@
       "repository": "https://github.com/rxliuli/pixra",
       "homepage": "https://pixra.rxliuli.com",
       "license": "AGPL-3.0-only",
-      "publisher": "rxliuli",
+      "publisher": "GitHub Actions",
       "official": true,
-      "publishedAt": "2026-02-13T10:49:56.475Z",
+      "publishedAt": "2026-02-13T10:53:19.237Z",
       "size": 6964
     },
     {
